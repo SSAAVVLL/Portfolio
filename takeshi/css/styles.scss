@@ -1,0 +1,1905 @@
+@import 'flex';
+@mixin standartMenu($padding: 0, $font-size: 1rem, $margin-right: 10px) {
+  list-style: none;
+  padding:0;
+  font-size:0;
+  margin:0;
+  li {
+    display:inline-block;
+    margin-right:$margin-right;
+    font-size:$font-size;
+    &:last-child {
+      margin-right:0;
+    }
+    a{
+      display:inline-block;
+      padding:$padding 0;
+      text-decoration:none;
+      color:inherit;
+      transition:0.5s color;
+    }
+  }
+}
+@mixin responsive($width) {
+  @media (max-width:$width){@content};
+}
+
+@font-face {
+  font-family: 'Fregat';
+  src: local('Fregat'), url('../fonts/fregat.woff2') format('woff2'), url('../fonts/fregat.woff') format('woff'), url('../fonts/fregat.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fregat';
+  src: local('Fregat Bold'), local('Fregat-Bold'), url('../fonts/fregatbold.woff2') format('woff2'), url('../fonts/fregatbold.woff') format('woff'), url('../fonts/fregatbold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+button {
+  border:none;
+}
+
+$mainFont: Fregat;
+$paddMax: 5%;
+$paddLG: 1%;
+$paddBodyMD: 2vw;
+$paddBodyXS: 3vw;
+$colorHeader: #f1f1f1;
+$colorMainText: #282828;
+$colorAccent: #ff0000;
+$widthXS:480px;
+$widthSM:768px;
+$widthMD:960px;
+$widthLG:1600px;
+$widthXXLG:1080px;
+$widthXLG:1360px;
+
+html, body, .wrapHead {
+  position:relative;
+}
+
+html {
+  font-family:$mainFont;
+  &.openedMenu {
+    overflow: auto;
+    @include responsive($widthMD) {
+      overflow: hidden;
+    }
+    body {
+      overflow: auto;
+      @include responsive($widthMD) {
+        overflow: hidden;
+      }
+    }
+  }
+  &.openedModal {
+    overflow: hidden;
+    @include responsive($widthMD) {
+      overflow: auto;
+    }
+    body {
+      overflow: hidden;
+      @include responsive($widthMD) {
+        overflow: auto;
+      }
+    }
+  }
+  &.scrollDown {
+    .header {
+      top:-135px;
+      @include responsive($widthLG) {
+        top:-122px;
+      }
+      @include responsive($widthMD) {
+        top:0px;
+      }
+    }
+  }
+}
+.headerFakeMargin {
+  height:201px;
+  @include responsive($widthLG) {
+    height:182px;
+  }
+  @include responsive($widthMD) {
+    height:265px;
+  }
+  @include responsive($widthSM) {
+    height:66px;
+  }
+}
+.header {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:110;
+  transition:top 0.5s;
+  .headerMenu {
+    @include standartMenu(5px, 17px, 45px);
+    background:#000;
+    color: #ececec;
+    padding:0 $paddMax;
+    @include responsive($widthLG) {
+      padding:0 $paddLG;
+    }
+    @include responsive($widthMD) {display:none;}
+  }
+  .mainPart {
+    @include flexbox;
+    @include justify-content(space-between);
+    @include align-items(center);
+    background:$colorHeader;
+    padding:7px $paddMax;
+    @include responsive($widthLG){
+      padding:7px $paddLG;
+    }
+    @include responsive($widthMD) {
+      @include flex-wrap(wrap);
+      padding:7px $paddLG 0 $paddLG;
+    }
+    @include responsive($widthSM) {
+      padding:7px $paddLG;
+      @include justify-content(space-between);
+    }
+    .mobileMenuButton {
+      transition:0.5s background-image;
+      display:none;
+      width:72px;
+      height:72px;
+      box-sizing: border-box;
+      background:url(../img/mobileButton.png)no-repeat, #fff;
+      background-position: center center;
+      @include flex-shrink(0);
+      @include responsive($widthMD) {display:block;}
+      @include responsive($widthSM) {
+        margin-right:0;
+        width:50px;
+        height:50px;
+        background: url(../img/mobileButton.png) center center, url(../img/logoNinja.png) center center, #fff;
+        background-size:30px, 45px;
+        background-repeat:no-repeat;
+      }
+    }
+    .mobileMenuButton.active {
+      background-image:url(../img/mobileButtonClose.png);
+      @include responsive($widthSM) {
+        background: url(../img/mobileButtonClose.png) center center, url(../img/logoNinja.png) center center, #fff;
+        background-size:30px, 45px;
+        background-repeat:no-repeat;
+        //background:url(../img/mobileButton.png) 0px 0px /50px, url(../img/logoNinja.png) 0px 0px /70px;
+      }
+    }
+    .logo {
+      text-decoration: none;
+      color:inherit;
+      > * {
+        vertical-align:middle;
+      }
+      @include responsive($widthSM) {
+        display:none;
+      }
+      img {
+        margin-right: 10px;
+        @include responsive($widthLG) {width:75px;}
+        @include responsive($widthMD) {width:75px;}
+        @include responsive($widthSM) {width:40px;}
+      }
+    }
+    .name {
+      font-size: 56px;
+      @include responsive($widthLG) {font-size:30px;}
+      @include responsive($widthMD) {font-size:48px;}
+      @include responsive($widthSM) {
+        font-size:27px;
+        display:none;
+      }
+      font-weight: 700;
+    }
+    .infoBlock {
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(space-around);
+      @include flex-basis(33%);
+      @include responsive($widthLG) {
+        @include flex-basis(43%);
+      }
+      @include responsive($widthMD) {
+        @include order(1);
+        @include flex-basis(100% + 2 * $paddLG);
+        margin: 7px (-1 * $paddLG);
+        background: #fff;
+        min-height:78px;
+      }
+      @include responsive($widthSM) {
+        @include flex-basis(auto);
+        @include flex-direction(column);
+        margin:0;
+        padding:0;
+        background:none;
+        min-height:auto;
+      }
+      .nameMobile {
+        font-weight: 700;
+        font-size: 20px;
+        display:none;
+        color:$colorMainText;
+        text-decoration:none;
+        @include responsive($widthSM) {
+          display:inline-block;
+        }
+      }
+      .phone {
+        font-weight: 700;
+        a {
+          color: $colorMainText;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 32px;
+          @include responsive($widthLG) {
+            font-size: 22px;
+          }
+          @include responsive($widthMD) {
+            font-size: 36px;
+          }
+          @include responsive($widthSM) {
+            font-size: 18px;
+          }
+          .sup {
+            vertical-align: text-top;
+            margin-right: 10px;
+            font-size: 60%;
+          }
+          .mainNumber {
+            font-size: 32px;
+            @include responsive($widthLG) {
+              font-size: 22px;
+            }
+            @include responsive($widthMD) {
+              font-size: 36px;
+            }
+            @include responsive($widthSM) {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+      .workTime {
+        font-size: 32px;
+        @include responsive($widthLG) {
+          font-size: 22px;
+        }
+        @include responsive($widthMD) {
+          font-size: 29px;
+        }
+        @include responsive($widthSM) {
+          font-size: 16px;
+          display:none;
+        }
+        font-weight: 700;
+        .timeLine {
+          @include responsive($widthMD) {
+            display: none;
+          }
+          @include responsive($widthSM) {
+            display: inline;
+          }
+        }
+      }
+    }
+    .wrapHead {
+      @include flexbox;
+      @include align-items(center);
+      @include responsive($widthSM) {
+        display:none;
+      }
+      .socialRefs {
+        margin-right: 2vw;
+        @include flex-shrink(0);
+        font-size: 0;
+        @include responsive($widthMD) {
+          display: none;
+        }
+        a {
+          font-size: 1rem;
+          display: inline-block;
+          margin-right: 3px;
+          img {
+            @include responsive($widthLG) {
+              width: 28px;
+            }
+          }
+        }
+        a:last-child {
+          margin-right: 0;
+        }
+      }
+      .cards {
+        @include flex-shrink(0);
+        text-align: center;
+        .text {
+          display: block;
+          color: $colorMainText;
+          font-size: 14px;
+          font-weight: 700;
+          margin-bottom: 9px;
+          @include responsive($widthMD) {
+            font-size: 22px;
+          }
+          @include responsive($widthSM) {
+            font-size: 14px;
+          }
+        }
+        img {
+          margin-right: 6px;
+          @include responsive($widthLG) {
+            width: 50px;
+          }
+          @include responsive($widthMD) {
+            width: 63px;
+          }
+          @include responsive($widthSM) {
+            width: 50px;
+          }
+        }
+        img:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .cartMobileButton {
+      top:0px;
+      position:relative;
+      display:none;
+      width:62px;
+      height:62px;
+      color:#232323;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size:28px;
+      //
+      background:url(../img/cart.png)center right no-repeat,#c8f678;
+      background-size:34px;
+      background-position:center center;
+      @include responsive($widthSM) {
+        display:inline-block;
+        order:1;
+        width:50px;
+        height:50px;
+        /*&:hover::after {
+          opacity:1;
+        }*/
+        &::after {
+          content: '0';
+          position: absolute;
+          right: 3px;
+          opacity: 0.8;
+          top: 3px;
+          font-size: 15px;
+          background: #fff;
+          display: inline-block;
+          width: 20px;
+          border-radius: 20px;
+          line-height: 21px;
+          font-weight: 700;
+          font-size: 11px;
+          height: 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .cartLine {
+    @include flexbox;
+    @include justify-content(space-between);
+    @include align-items(center);
+    @include responsive($widthMD) {
+      @include justify-content(flex-end);
+    }
+    @include responsive ($widthSM) {
+      display:none;
+    }
+    background:#fff;
+    width:100%;
+    box-sizing: border-box;
+    font-weight: bold;
+    padding:0 $paddMax;
+    @include responsive($widthLG) {padding:0 $paddLG;}
+    .categoryMenu {
+       @include standartMenu(8px, 28px, 50px);
+       @include responsive($widthMD) {display:none;}
+       background:#fff;
+       color: $colorMainText;
+       li {
+         @include responsive ($widthLG){
+           margin-right:1vw;
+           font-size: 23px;
+         }
+       }
+       a:hover {color: $colorAccent;}
+     }
+    .cart {
+      @include flexbox;
+      @include align-items(center);
+      margin:5px 0;
+      > * {
+        vertical-align:middle;
+      }
+      .items {
+        font-size: 20px;
+        text-align:right;
+        display:inline-block;
+        @include responsive($widthLG) {font-size: 18px};
+        @include responsive($widthMD) {font-size: 26px};
+        @include responsive($widthSM) {font-size: 16px};
+      }
+      .buttonCart {
+        display:inline-block;
+        color:#232323;
+        text-decoration: none;
+        padding:5px 66px 5px 14px;
+        border-radius: 5px;
+        font-size:28px;
+        background:url(../img/cart.png)no-repeat right 10px center,#c8f678;
+        margin-left:17px;
+        @include responsive($widthLG) {font-size: 24px;}
+        @include responsive($widthMD) {
+          padding:16px 66px 16px 14px;
+          border-radius: 10px;
+        }
+        @include responsive($widthSM) {font-size: 20px;}
+      }
+    }
+  }
+}
+.mobileMenu {
+  display: none;
+  z-index: 120;
+  transition: 0.5s width;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  @include responsive($widthMD) {
+    display: block;
+    width: 0;
+    top: 100px;
+  }
+  @include responsive($widthSM) {
+    top: 66px;
+  }
+  .wrapRelative {
+    position:relative;
+    width:100%;
+    height:100%;
+    .wrapMobileMenu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      max-height: 100%;
+      overflow: auto;
+      ul {
+        @include standartMenu(24px, 35px, 0);
+        li {
+          a {
+            width: 100%;
+            @include responsive($widthSM) {
+              padding: 10px 0;
+            }
+          }
+          :last-child {
+            border-bottom: none;
+          }
+          border-bottom: 1px solid #b9b9b9;
+          background: #e8e8e8;
+          text-align: center;
+          width: 100%;
+          @include responsive($widthSM) {
+            font-size: 20px;
+          }
+        }
+
+      }
+      .mobileCategoryMenu {
+        font-weight: 700;
+        color: $colorMainText;
+        li {
+          background: #e8e8e8;
+        }
+        a:hover {
+          color: $colorAccent;
+        }
+      }
+      .mobileHeaderMenu {
+        color: #ececec;
+        li {
+          background: #000000;
+        }
+      }
+    }
+    .mobileMenuShadow {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      //z-index: 110;
+
+    }
+  }
+  &.active {
+    width: 100%;
+    @include responsive($widthMD) {
+      display: block;
+    }
+  }
+}
+.modal {
+  visibility:hidden;
+  transition:0.5s all;
+  opacity:0;
+  z-index:200;
+  @include responsive($widthMD) {
+    display:none;
+  }
+  overflow:auto;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  .modalShadow {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.5);
+  }
+  &.active {
+    visibility: visible;
+    opacity:1;
+  }
+  .modalBody {
+
+    width:40%;
+    margin:100px auto;
+    padding:10px;
+    background:#b3f66f;
+    position:relative;
+    .close {
+      display:inline-block;
+      position:absolute;
+      top:0;
+      right:0;
+      width:41px;
+      height:41px;
+      background:url(../img/close.png)no-repeat,#b3f66f;
+      background-position:center center;
+    }
+    .picture {
+      width:100%;
+      display:inline-block;
+      margin-bottom:25px;
+    }
+    .wrapItem {
+      @include flexbox;
+      @include justify-content(space-between);
+      .wrapText {
+        padding: 0 5% 10px;
+        .itemHeader {
+          width: 100%;
+          display: inline-block;
+          color: $colorMainText;
+          font-weight: 700;
+          font-size: 28px;
+          line-height: 44px;
+        }
+        .itemDescription {
+          padding: 0 0 35px 0;
+          margin: 0;
+          font-size: 14px;
+        }
+        .itemDetails {
+          display: block;
+          font-size: 15px;
+        }
+      }
+      .wrapBuy {
+        @include flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+        @include flex-direction(column);
+        min-height:150px;
+        padding: 0 5% 0 0;
+        background: #b3f66f;
+        .price, .number {
+          font-size: 28px;
+          @include responsive($widthMD) {
+            font-size: 22px;
+          }
+          @include responsive($widthSM) {
+            font-size: 19px;
+          }
+          @include responsive($widthXS) {
+            font-size: 28px;
+          }
+        }
+        .price {
+          color: $colorMainText;
+          font-weight: 700;
+        }
+        .count {
+          background: #fff;
+          border-radius: 5px;
+          height: 41px;
+          padding: 0 7px;
+          > * {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 41px;
+          }
+          .number {
+            text-align: center;
+            width: 34px;
+            font-weight: 700;
+            color: $colorMainText;
+            outline: none;
+            border: none;
+          }
+          .plus, .minus {
+            width: 26px;
+            height: 25px;
+            line-height: 41px;
+            cursor: pointer;
+            transition:0.5s opacity;
+            opacity:0.7;
+            background:url(../img/spritesheet.png)no-repeat;
+            &:hover {
+              opacity:1;
+            }
+          }
+          .minus {
+            background-position: -5px -5px;
+          }
+          .plus {
+            background-position: -40px -5px;
+          }
+        }
+        .buttonAddToCart {
+          background: url(../img/cart.png) no-repeat, #ffd300;
+          background-position: center center;
+          @include responsive($widthMD) {
+            background-size: 30px;
+          }
+          @include responsive($widthSM) {
+            background-size: 26px;
+          }
+          @include responsive($widthXS) {
+            background-size: 30px;
+          }
+
+          width: 140px;
+          height: 51px;
+        }
+      }
+    }
+  }
+}
+.slider {
+  .bx-wrapper {
+    img {
+      width:100%;
+    }
+    .bx-viewport {
+      border: none;
+      left:0;
+      right:0;
+    }
+    .mainBanner {
+      margin: 0;
+    }
+  }
+  .bx-controls-direction {
+    a {
+      z-index:100;
+    }
+  }
+  @include responsive($widthMD) {
+    display:none;
+  }
+}
+.wrapBodyContent {
+  background: #e7e7e7;
+  overflow:hidden;
+  padding: 0 $paddMax 50px $paddMax;
+  @include responsive($widthLG) {
+    padding: 0 1vw 20px 1vw;
+  }
+  @include responsive($widthMD) {
+    padding: 0 $paddBodyMD 20px $paddBodyMD;
+  }
+  @include responsive($widthXS) {
+    padding: 0 $paddBodyXS 20px $paddBodyXS;
+  }
+  .localMenu {
+    @include standartMenu(19px, 28px, 50px);
+    color: $colorMainText;
+    text-align: center;
+    li {
+      font-weight: 700;
+      @include responsive ($widthSM) {
+        margin-right: 25px;
+      }
+      @include responsive ($widthXS) {
+        font-size: 18px;
+      }
+      a:hover {
+        color: $colorAccent;
+      }
+    }
+  }
+  .wrapItems {
+    width: calc(100% + 4px);
+    //overflow:hidden;
+    &.order {
+      background:none;
+      margin-left:0;
+      .wrapPaddItem {
+        width:100%;
+        background:none;
+      }
+    }
+    .wrapPaddItem {
+      //height:432px;
+      float:left;
+      background:#e7e7e7;
+      width: 20%;
+      margin-bottom:25px;
+      padding-right: 4px;
+      box-sizing:border-box;
+      @include responsive($widthXLG) {
+        width: 25%;
+        margin-bottom:1vw;
+      }
+      @include responsive($widthXXLG) {
+        width: 33.333333%;
+      }
+      @include responsive($widthMD) {
+        margin-bottom:$paddBodyMD;
+      }
+      @include responsive($widthSM) {
+        width: 50%;
+      }
+      @include responsive($widthXS) {
+        width: 100%;
+        margin-bottom:$paddBodyXS;
+      }
+      .wrapItem {
+        transition:0.5s box-shadow;
+        &:hover {
+          box-shadow:0 0 5px 0 rgba(0,0,0,0.5);
+        }
+        background:#fff;
+        .wrapDescription {
+          cursor:pointer;
+          .picture {
+            width: 100%;
+            display: inline-block;
+          }
+          .wrapText {
+            //@include flexbox;
+            //@include flex-direction(column);
+            //@include justify-content(space-between);
+            //min-height:140px;
+            padding:0 5% 10px;
+            .itemHeader {
+              width: 100%;
+              display: inline-block;
+              color: $colorMainText;
+              text-align: center;
+              font-weight: 700;
+              font-size: 28px;
+              line-height: 44px;
+            }
+            .itemDescription {
+              text-align:center;
+              text-overflow:ellipsis;
+              height:57px;
+              margin: 0;
+              font-size: 14px;
+              overflow:hidden;
+            }
+            .itemDetails {
+              display: block;
+              text-align: center;
+              font-size: 15px;
+            }
+          }
+        }
+        .wrapBuy {
+          @include flexbox;
+          @include justify-content(space-between);
+          @include align-items(center);
+          padding:0 0 0 5%;
+          background:#b3f66f;
+          .price, .number {
+            font-size: 24px;
+            //@include responsive($widthXLG) {font-size:24px;}
+            @include responsive($widthMD) {font-size:20px;}
+            @include responsive($widthSM) {font-size:16px;}
+            @include responsive($widthXS) {font-size:28px;}
+          }
+          .price {
+            color: $colorMainText;
+            font-weight: 700;
+          }
+          .count {
+            background:#fff;
+            border-radius:5px;
+            height:41px;
+            padding:0 7px;
+            > * {
+              display:inline-block;
+              vertical-align: middle;
+              line-height:42px;
+            }
+            .number {
+              text-align:center;
+              width:34px;
+              font-weight: 700;
+              color:$colorMainText;
+              outline: none;
+              border: none;
+            }
+            .plus, .minus {
+              width:26px;
+              height:25px;
+              line-height:41px;
+              cursor:pointer;
+              transition:0.5s opacity;
+              opacity:0.7;
+              background:url(../img/spritesheet.png)no-repeat;
+              &:hover {
+                opacity:1;
+              }
+            }
+            .minus {
+              background-position: -5px -5px;
+            }
+            .plus {
+              background-position: -40px -5px;
+            }
+          }
+          .buttonAddToCart {
+            background:url(../img/cart.png)no-repeat, #ffd300;
+            background-position:center center;
+            @include responsive($widthMD) {background-size:30px;}
+            @include responsive($widthSM) {background-size:26px;}
+            @include responsive($widthXS) {background-size:30px;}
+
+            width:71px;
+            height:51px;
+            max-width:20%;
+          }
+        }
+      }
+    }
+  }
+  .headerContent {
+    color: $colorMainText;
+    font-size: 28px;
+    font-weight: 700;
+    text-align:center;
+  }
+  .wrapContent {
+    background:#fff;
+    padding:40px 10vw;
+    @include responsive($widthMD) {
+      padding:20px 3vw;
+    }
+    @include responsive($widthXS) {
+      padding:10px 3vw;
+    }
+    &.reviews {
+      padding:0;
+    }
+    &.order {
+      @include flexbox;
+      padding:5px;
+      @include responsive($widthMD) {
+        padding:0;
+      }
+      .headerOrder {
+        font-size: 28px;
+        font-weight: 700;
+        text-align: center;
+        margin-top:10px;
+      }
+      .cart {
+        @include flex-grow(1);
+        padding:20px 5%;
+        @include responsive($widthLG) {
+          padding:20px;
+        }
+        @include responsive($widthMD) {
+          padding:5px 10px;
+        }
+        .sublineOrder {
+          font-size: 28px;
+          font-weight: 700;
+          display:block;
+          @include responsive($widthSM) {
+            font-size:20px;
+          }
+        }
+        .itemCartOrder {
+          @include flexbox;
+          @include justify-content(space-between);
+          @include align-items(center);
+          .name {
+            width:50%;
+          }
+          .price {
+            width:15%;
+            text-align:center;
+          }
+          .name, .price, .number {
+            font-size: 24px;
+            font-weight:700;
+            @include responsive($widthSM) {
+              font-size:14px;
+            }
+          }
+          .count {
+            @include flex-shrink(0);
+            height:41px;
+            padding:0 7px;
+            > * {
+              display:inline-block;
+              vertical-align: middle;
+              line-height:41px;
+            }
+            .number {
+              text-align:center;
+              width:34px;
+              font-weight: 700;
+              color:$colorMainText;
+              outline: none;
+              border: none;
+              @include responsive($widthSM) {
+                width:20px;
+              }
+            }
+            .plus, .minus, .delete {
+              border-radius: 100px;
+              width:26px;
+              height:25px;
+              line-height:41px;
+              cursor:pointer;
+              transition:0.5s opacity;
+              opacity:0.7;
+              background:url(../img/spritesheet.png)no-repeat;
+              &:hover {
+                opacity:1;
+              }
+            }
+            .minus {
+              background-position: -40px -40px;
+            }
+            .plus {
+              background-position: -76px -5px;
+            }
+            .delete {
+              background-position: -5px -40px;
+              margin-right:10px;
+              @include responsive($widthSM) {
+                margin-right:5px;
+              }
+            }
+          }
+        }
+        .discriptionAdds {
+          margin-top:30px;
+          margin:0 -10px;
+          padding:15px 10px;
+          @include responsive($widthMD) {
+            background:#dcdcdc;
+            margin:15px -10px;
+            padding:10px 20px;
+          }
+        }
+      }
+      .addItems {
+        @include flexbox;
+        @include flex-wrap(wrap);
+        .addItem {
+          @include flexbox;
+          @include align-items(center);
+          @include justify-content(space-between);
+          width:48%;
+          margin-right:4%;
+          &:nth-child(2n) {
+            margin-right:0;
+          }
+          margin-bottom:20px;
+          padding:15px;
+          box-sizing:border-box;
+          border:2px dotted #232323;
+          border-radius:30px;
+          font-size: 28px;
+          @include responsive($widthLG) {
+            font-size: 16px;
+          }
+          @include responsive($widthMD) {
+            font-size: 18px;
+          }
+          @include responsive($widthSM) {
+            font-size: 19px;
+            width:100%;
+            margin-right:0;
+          }
+          @include responsive($widthXS) {
+            font-size: 15px;
+            padding:10px 5px;
+          }
+          .visual {
+            width:85px;
+            @include flexbox;
+            @include flex-direction(column);
+            @include align-items(center);
+            @include responsive($widthLG) {
+              width:80px;
+            }
+            img {
+              width:100%;
+            }
+            .name {
+              display:block;
+              font-size:20px;
+              line-height:1;
+              font-weight:700;
+              text-align:center;
+              @include responsive($widthXS) {
+                font-size:16px;
+              }
+            }
+          }
+          .price, .count {
+            font-size:28px;
+            @include responsive($widthLG) {
+              font-size:20px;
+            }
+            @include responsive($widthXS) {
+              font-size:16px;
+            }
+          }
+          .price {
+            width:110px;
+            color: $colorMainText;
+            font-weight: 700;
+            line-height:1;
+            text-align:center;
+            @include responsive($widthLG) {
+              width:80px;
+            }
+            @include responsive($widthXS) {
+              width:70px;
+            }
+          }
+          .count {
+            @include flex-shrink(0);
+            background: #fff;
+            border-radius: 5px;
+            height: 41px;
+            padding: 0 7px;
+            > * {
+              display: inline-block;
+              vertical-align: middle;
+              line-height: 41px;
+            }
+            .number {
+              text-align: center;
+              width: 34px;
+              font-weight: 700;
+              color: $colorMainText;
+              outline: none;
+              border: none;
+              @include responsive($widthLG) {
+                width:22px;
+              }
+              @include responsive($widthXS) {
+                width:17px;
+              }
+            }
+            .plus, .minus {
+              width: 26px;
+              height: 25px;
+              line-height: 41px;
+              cursor: pointer;
+              transition:0.5s opacity;
+              opacity:0.7;
+              background:url(../img/spritesheet.png)no-repeat;
+              &:hover {
+                opacity:1;
+              }
+            }
+            .minus {
+              background-position: -5px -5px;
+            }
+            .plus {
+              background-position: -40px -5px;
+            }
+          }
+          .buttonAddToCart {
+            background: url(../img/cart.png) no-repeat, #ffd300;
+            background-position: center center;
+            border-radius:10px;
+            @include responsive($widthLG) {
+              background-size: 20px;
+            }
+            @include responsive($widthMD) {
+              background-size: 30px;
+            }
+            @include responsive($widthSM) {
+              background-size: 26px;
+            }
+            @include responsive($widthXS) {
+              background-size: 30px;
+            }
+            width: 70px;
+            height: 51px;
+          }
+        }
+      }
+      .total {
+        background:#ffd300;
+        font-weight:700;
+        font-size:28px;
+        padding:10px;
+        border-radius:10px;
+        width:350px;
+        margin:0 auto;
+        display:block;
+        text-align:center;
+        margin-bottom:10px;
+        @include responsive($widthMD) {
+          width:auto;
+          border-radius: 0;
+          margin:0 -10px;
+          margin-bottom:10px;
+        }
+      }
+      .formOrder {
+        margin-top:20px;
+        .itemForm {
+          &.radio {
+            @include flexbox;
+            @include justify-content(space-between);
+            @include align-items(center);
+            margin-bottom: 20px;
+            @include responsive($widthSM) {
+              @include flex-direction(column);
+            }
+            .formElement {
+              margin-bottom:0;
+            }
+            .labelRadio {
+              display:block;
+              margin-bottom:10px;
+              @include responsive($widthSM) {
+                padding:0 5px;
+              }
+              &:last-child {
+                margin-bottom:0;
+              }
+              .valueRadio {
+                padding-left:30px;
+                position:relative;
+                line-height:19px;
+                display:inline-block;
+                &::before {
+                  content:'';
+                  position:absolute;
+                  top:0;
+                  left:0;
+                  width:19px;
+                  height:20px;
+                  background:url(../img/spritesheet.png)no-repeat;
+                  background-position: -75px -69px;
+                }
+              }
+              input {
+                display:none;
+                &:checked + .valueRadio::before {
+                  background-position: -104px -69px;
+                }
+              }
+            }
+          }
+          &.textarea {
+            .formElement {
+              @include align-items(flex-start);
+            }
+          }
+          &.checkbox {
+            .labelCheckbox {
+              @include flexbox;
+              @include justify-content(space-between);
+              input {
+                display:none;
+                &:checked + .textCheckbox::before {
+                  background-position: -104px -40px;
+                }
+              }
+              .textCheckbox {
+                font-weight: bold;
+                display: inline-block;
+                font-size:16px;
+                padding-left:30px;
+                position:relative;
+                .privacy {
+                  color: #365cff;
+                }
+                &::before {
+                  content:'';
+                  position:absolute;
+                  top:0;
+                  left:0;
+                  width:20px;
+                  height:19px;
+                  background:url(../img/spritesheet.png)no-repeat;
+                  background-position: -75px -40px;
+                }
+              }
+            }
+          }
+          &.twoElements {
+            @include flexbox;
+            @include responsive($widthSM) {
+              @include flex-wrap(wrap);
+              padding:0 5px;
+            }
+            .formElement {
+              width:48%;
+              margin-right:4%;
+              @include responsive($widthSM) {
+                width:100%;
+                margin-right:0;
+                @include flex-direction(row);
+              }
+              .heading {
+                @include responsive($widthSM) {
+                  margin-bottom:0;
+                }
+              }
+              &:last-child {
+                margin-right:0;
+              }
+              .wrapInputs {
+                width:37.4%;
+              }
+            }
+          }
+          &.threeElements {
+            @include flexbox;
+            @include align-items(flex-start);
+            @include justify-content(space-between);
+            @include flex-wrap(wrap);
+            .formElement {
+              width:29%;
+              margin-left:1.5%;
+              &:nth-child(1n) {
+                @include responsive($widthSM) {
+                  margin-left: 0;
+                }
+              }
+
+              @include justify-content(flex-end);
+              @include responsive($widthSM) {
+                width:48%;
+              }
+              &:first-child {
+                width:39%;
+                margin-left:0;
+                @include responsive($widthSM) {
+                  width:48%;
+                }
+                @include justify-content(space-between);
+                .wrapInputs {
+                  width:22.8%;
+                  @include responsive($widthSM) {
+                    width:100%;
+                  }
+                }
+              }
+              .heading {
+                padding-right:20px;
+
+              }
+              .wrapInputs {
+                width:30.7%;
+                @include responsive($widthSM) {
+                  width:100%;
+                }
+              }
+            }
+            .otherElements {
+              @include flexbox;
+              @include justify-content(space-between);
+              @include flex-wrap(wrap);
+              width:60.9%;
+              margin-left:39.1%;
+              @include responsive($widthSM) {
+                width:100%;
+                margin-left:0;
+                display:contents;
+              }
+              .formElement {
+                width: 47.2%;
+                margin-left:2.8%;
+                &:nth-child(1n) {
+                  @include responsive($widthSM) {
+                    margin-left: 0;
+                  }
+                }
+                &:first-child {
+                  @include justify-content(flex-end);
+                  .wrapInputs {
+                    width:30.7%;
+                    @include responsive($widthSM) {
+                      width:100%;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .wrapInputs {
+            width: 70%;
+            @include flex-shrink(0);
+            @include responsive($widthSM) {
+              width:100%;
+            }
+            .wrapRadio {
+              display:block;
+              .valueRadio {
+                font-size: 18px;
+              }
+            }
+            input[type="text"], input[type="number"] {
+               width: 100%;
+               outline: none;
+               display: block;
+               border: 4px solid #ffd300;
+               border-radius: 20px;
+               padding: 10px 20px;
+               font-size: 33px;
+               font-weight: bold;
+               box-sizing: border-box;
+               -moz-appearance: textfield;
+               @include responsive($widthSM) {
+                 text-align:center;
+                 padding:8px;
+               }
+             }
+            input[type="number"]::-webkit-inner-spin-button {
+              width: 28px;
+              height: 28px;
+              padding:5px;
+              position: relative;
+              right: 0px;
+              top:0px;
+              border-radius: 28px;
+              @include responsive($widthSM) {
+              }
+            }
+          }
+          .formElement {
+            @include flexbox;
+            @include justify-content(space-between);
+            @include align-items(center);
+            margin-bottom: 20px;
+            @include responsive($widthSM) {
+              @include flex-direction(column);
+            }
+            .heading {
+              font-size: 21px;
+              font-weight: 700;
+              padding-right:50px;
+              @include responsive ($widthLG) {
+                font-size:20px;
+              }
+              @include responsive($widthSM) {
+                margin-bottom: 10px;
+              }
+              @include responsive($widthSM) {
+                padding:0;
+                font-size:17px;
+              }
+            }
+            textarea {
+              padding: 10px 20px;
+              border: 4px solid #ffd300;
+              outline: none;
+              width: 100%;
+              display: block;
+              resize:none;
+              box-sizing: border-box;
+              border-radius: 20px;
+              height:200px;
+            }
+          }
+        }
+        .tip {
+          font-size:16px;
+          font-weight:700;
+        }
+        .getOrder {
+          font-size: 28px;
+          display:block;
+          margin:35px auto;
+          margin-bottom:10px;
+          font-weight: 700;
+          padding:15px 50px;
+          text-align:center;
+          border:none;
+          outline:none;
+          background:#b3f66f;
+          border-radius:10px;
+          @include responsive($widthXS) {
+            font-size:20px;
+          }
+        }
+      }
+      .recommend {
+        @include flex-shrink(0);
+        background: #e8ffcf;
+        overflow: hidden;
+        padding: 10px;
+        width: 300px;
+        @include responsive($widthMD) {
+          display: none;
+        }
+        .backToCatalog {
+          font-size: 24px;
+          font-weight: 700;
+          padding:10px;
+          background:#b3f66f;
+          border-radius:10px;
+          width:100%;
+          text-decoration: none;
+          color:$colorMainText;
+          display:inline-block;
+          box-sizing:border-box;
+          text-align:center;
+          margin-top:10px;
+        }
+      }
+    }
+    .wrapDiscount {
+      @include flexbox;
+      @include align-items(center);
+      font-size: 28px;
+      margin-bottom:45px;
+      @include responsive($widthMD) {
+        font-size:20px;
+      }
+      @include responsive($widthXS) {
+        font-size:15px;
+      }
+      .imageDiscount {
+        margin-right:60px;
+        max-width:33%;
+        @include responsive($widthXS) {
+          margin-right:15px;
+        }
+      }
+      .textDiscount {
+        .headerDiscount {
+          font-weight: 700;
+        }
+        .descriptionDiscount {
+          margin: 0;
+        }
+      }
+    }
+    .clarification {
+      font-size: 28px;
+      font-weight: 700;
+      text-align:center;
+      margin-bottom:100px;
+      @include responsive($widthMD) {
+        font-size:20px;
+        margin-bottom:45px;
+      }
+      @include responsive($widthXS) {
+        font-size:15px;
+      }
+    }
+    .additionalInformation {
+      font-size: 28px;
+      font-weight: 700;
+      text-align:center;
+      @include responsive($widthMD) {
+        font-size:20px;
+      }
+      @include responsive($widthXS) {
+        font-size:15px;
+      }
+    }
+    section {
+      font-size:28px;
+      font-weight:700;
+      text-align:center;
+      @include responsive($widthSM) {
+        font-size:15px;
+      }
+      h1 {
+        font-size:1em;
+        text-align:center;
+      }
+      p {
+        margin:0;
+      }
+      .phoneNumber {
+        font-size: 1.7em;
+        padding:50px;
+        text-align: center;
+        display:inline-block;
+        border:2px dotted #404040;
+        border-radius:30px;
+        @include responsive($widthSM) {
+          padding:20px;
+        }
+        a {
+          text-decoration:none;
+          color:$colorMainText;
+        }
+        .sup {
+          vertical-align: text-top;
+          margin-right: 10px;
+          font-size: 60%;
+        }
+      }
+      .dayShedule {
+        @include flexbox;
+        @include justify-content(space-between);
+        max-width:700px;
+        margin:0 auto;
+        .days {
+          white-space: nowrap;
+        }
+        .time {
+          min-width:230px;
+          text-align: left;
+          @include responsive($widthSM) {
+            min-width:122px;
+          }
+        }
+      }
+      .map {
+        margin: 0 -10vw;
+        height:400px;
+        @include responsive($widthMD) {
+          margin:0 -3vw;
+          height:200px;
+        }
+      }
+      .requisites {
+        @include flexbox;
+        @include justify-content(space-between);
+        font-weight:400;
+        text-align:left;
+        @include responsive($widthXS) {
+          font-size:12px;
+        }
+        .column {
+          display:inline-block;
+          &:first-child {
+            margin-right:20px;
+          }
+        }
+      }
+    }
+    .wrapVacancies {
+      font-size:28px;
+      @include responsive($widthMD) {
+        font-size:20px;
+      }
+      @include responsive($widthXS) {
+        font-size:15px;
+      }
+      .headerVacancies {
+        font-weight:bold;
+        text-align:center;
+        display:block;
+      }
+      .listVacancies {
+        @include flexbox;
+        @include flex-wrap(wrap);
+        @include justify-content(space-between);
+        padding:30px 0;
+        .itemVacancies {
+          font-size: 1.4em;
+          width:26vw;
+          padding: 50px;
+          text-align: center;
+          display: inline-block;
+          border: 2px dotted #404040;
+          border-radius: 30px;
+          font-weight: bold;
+          margin-bottom:30px;
+          @include responsive($widthSM) {
+            width:35vw;
+            padding:20px;
+          }
+          @include responsive($widthSM) {
+            width:100%;
+          }
+        }
+      }
+    }
+    .wrapDelivery {
+      font-size:28px;
+      @include responsive($widthMD) {
+        font-size:20px;
+      }
+      @include responsive($widthXS) {
+        font-size:15px;
+      }
+      .headerDelivery {
+        font-weight:bold;
+        text-align:center;
+        display:block;
+        &.main {
+          margin:20px 0;
+        }
+      }
+      .subheader {
+        text-align:center;
+        display:block;
+      }
+      .wrapPricesDelivery {
+        @include flexbox;
+        @include flex-wrap(wrap);
+        @include justify-content(space-between);
+        .priceDelivery {
+          margin-bottom:20px;
+          .headerPriceDelivery {
+            font-weight:bold;
+            display:block;
+          }
+        }
+      }
+    }
+    .wrapReviews {
+      .review {
+        @include flexbox;
+        @include justify-content(space-around);
+        @include align-items(center);
+        padding:50px;
+        @include responsive($widthSM) {
+          padding:50px 2vw;
+        }
+        .title {
+          text-align:center;
+          margin-right:30px;
+          width:20%;
+          @include responsive($widthSM) {
+            width:30%;
+            margin-right:3vw;
+          }
+          .name {
+            font-size: 28px;
+            font-weight: 700;
+            display:block;
+            @include responsive($widthSM) {
+              font-size:20px;
+            }
+          }
+          .date {
+            font-size:20px;
+            @include responsive($widthSM) {
+              font-size:15px;
+            }
+          }
+        }
+        .text {
+          font-size:20px;
+          width:60%;
+          @include responsive($widthSM) {
+            font-size:15px;
+            width:70%;
+          }
+        }
+        &:nth-child(2n) {
+          background:#fff;
+        }
+        &:nth-child(2n+1) {
+          background:#e8ffcf;
+        }
+      }
+    }
+    .wrapFormReviews {
+      padding:20px 50px;
+      @include flexbox;
+      @include flex-wrap(wrap);
+      @include responsive ($widthSM) {
+        padding:20px 2vw;
+      }
+      .headerFormReview {
+        display:block;
+        text-align: center;
+        font-weight: 700;
+        font-size: 28px;
+        width:100%;
+        //margin-bottom:20px;
+      }
+      .contactInfo {
+        width:20%;
+        @include responsive($widthMD) {
+          width:100%;
+        }
+        .headerContactInfo {
+          font-size:28px;
+          display:block;
+          text-align:center;
+          font-weight: 700;
+          line-height:1.8;
+          @include responsive($widthLG) {
+            font-size:20px;
+          }
+        }
+        input {
+          padding:20px;
+          width:100%;
+          box-sizing: border-box;
+          border:4px solid #ffd300;
+          border-radius:20px;
+          outline:none;
+          font-size:20px;
+          @include responsive($widthLG) {
+            font-size:15px;
+          }
+        }
+        .remark {
+          font-size:16px;
+          display:block;
+          text-align:center;
+          margin:5px 0;
+        }
+      }
+      .formReview {
+        @include flexbox;
+        width:75%;
+        margin-left:5%;
+        margin-top:50px;
+        @include responsive($widthLG) {
+          margin-top:36px;
+        }
+        @include responsive($widthMD) {
+          width:100%;
+          margin:0;
+        }
+        @include responsive($widthSM) {
+          @include flex-direction(column);
+        }
+        textarea {
+          width:85%;
+          padding:20px 5vw 20px 20px;
+          font-size:20px;
+          border:4px solid #ffd300;
+          border-radius:20px 0 0 20px;
+          outline:none;
+          resize:none;
+          height:187px;
+          box-sizing: border-box;
+          @include responsive($widthLG) {
+            height:164px;
+            font-size:15px;
+          }
+          @include responsive($widthSM) {
+            width:100%;
+            border-radius:20px;
+          }
+        }
+        input {
+          width:20%;
+          border:4px solid #ffd300;
+          padding:20px;
+          border-radius:20px;
+          margin-left:-5%;
+          background:#ffd300;
+          font-weight:700;
+          font-size:28px;
+          white-space: normal;
+          outline:none;
+          height:187px;
+          z-index:10;
+          @include responsive($widthLG) {
+            font-size:20px;
+            height:164px;
+          }
+          @include responsive($widthMD) {
+            width:25%;
+          }
+          @include responsive($widthSM) {
+            font-size:15px;
+            width:100%;
+            margin:0;
+            margin-top:10px;
+            height:auto;
+          }
+        }
+      }
+    }
+  }
+}
+.footer {
+  background:#d8d8d8;
+  padding:35px $paddMax;
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+  @include responsive($widthLG) {
+    padding:35px $paddLG;
+  }
+  @include responsive($widthMD) {
+    @include flex-wrap(wrap);
+  }
+  @include responsive($widthSM) {
+    padding:12px $paddLG;
+  }
+  .rules {
+    @include responsive($widthXS) {
+      line-height:28px;
+    }
+  }
+  .rules, .copyrights {
+    color: #5a5a5a;
+    font-size: 17px;
+    @include responsive($widthMD) {
+      font-size:21px;
+      @include order(1);
+    }
+    @include responsive($widthXS)  {
+      font-size:14px;
+      width:100%;
+      text-align:center;
+    }
+  }
+  .socialRefs {
+    font-size:0;
+    @include responsive($widthMD) {
+      width:100%;
+      text-align:center;
+      margin-bottom:20px;
+    }
+    @include responsive($widthSM) {
+      margin-bottom:0;
+    }
+    a {
+      font-size:1rem;
+      margin-right:3px;
+      @include responsive($widthMD) {
+        margin-right: 30px;
+      }
+      @include responsive($widthSM) {
+        margin-right: 12px;
+      }
+      &:last-child {
+        margin-right:0;
+      }
+      img {
+        @include responsive($widthXS) {
+          width:28px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@font-face {
+	font-family: 'Conv_PFSquareSansPro-Medium';
+	src: url('fonts/PFSquareSansPro-Medium.eot');
+	src: local('O'), url('../fonts/PFSquareSansPro-Medium.woff') format('woff'), url('../fonts/PFSquareSansPro-Medium.ttf') format('truetype'), url('../fonts/PFSquareSansPro-Medium.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Conv_PFSquareSansPro-Bold';
+	src: url('fonts/PFSquareSansPro-Bold.eot');
+	src: local('O'), url('../fonts/PFSquareSansPro-Bold.woff') format('woff'), url('../fonts/PFSquareSansPro-Bold.ttf') format('truetype'), url('../fonts/PFSquareSansPro-Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Conv_PFSquareSansPro-Regular';
+	src: url('fonts/PFSquareSansPro-Regular.eot');
+	src: local('☺'), url('../fonts/PFSquareSansPro-Regular.woff') format('woff'), url('../fonts/PFSquareSansPro-Regular.ttf') format('truetype'), url('../fonts/PFSquareSansPro-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+

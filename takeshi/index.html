@@ -1,0 +1,319 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery.bxslider.css">
+        <link rel="stylesheet" href="css/styles.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!--Modal block start-->
+        <div class="modal">
+            <div class="modalShadow toggleModal" data-modal=".modal"></div>
+            <div class="modalBody">
+                <button class="close toggleModal" data-modal=".modal" href="#"></button>
+                <img class="picture" src="img/itemsBig/item1.png" alt=""/>
+                <div class="wrapItem">
+                    <div class="wrapText">
+                        <span class="itemHeader"></span>
+                        <p class="itemDescription"></p>
+                        <span class="itemDetails"></span>
+                    </div>
+                    <div class="wrapBuy countButtons">
+                        <span class="price"></span>
+                        <div class="count"><a class="minus"></a><span class="number"></span><a class="plus"></a></div>
+                        <a class="buttonAddToCart" href="#"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal block end-->
+        <!--Mobile menu start-->
+        <div class="mobileMenu" data-target-toggle=".mobileMenu .mobileMenuButton">
+            <div class="wrapRelative">
+                <div class="mobileMenuShadow menuArea" data-menu=".mobileMenu"></div>
+                <div class="wrapMobileMenu">
+                    <ul class="mobileCategoryMenu">
+                        <li><a href="#">Роллы</a></li>
+                        <li><a href="#">Сеты</a></li>
+                        <li><a href="#">Пицца</a></li>
+                        <li><a href="#">Лапша</a></li>
+                        <li><a href="#">Салаты</a></li>
+                        <li><a href="#">Закуски</a></li>
+                        <li><a href="#">Десерты</a></li>
+                    </ul>
+                    <ul class="mobileHeaderMenu">
+                        <li><a href="reviews.html">Отзывы клиентов</a></li>
+                        <li><a href="vacancies.html">Вакансии</a></li>
+                        <li><a href="delivery.html">Информация о доставке</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="discount.html">Скидки и акции</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Mobile menu end-->
+        <!--Header start-->
+        <div class="headerFakeMargin"></div>
+        <div class="header">
+            <ul class="headerMenu">
+                <li><a href="reviews.html">Отзывы клиентов</a></li>
+                <li><a href="vacancies.html">Вакансии</a></li>
+                <li><a href="delivery.html">Информация о доставке</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="discount.html">Скидки и акции</a></li>
+            </ul>
+            <div class="mainPart">
+                <a class="mobileMenuButton menuArea" data-menu=".mobileMenu" href="#"></a>
+                <a class="logo" href="#"><img src="img/headerLogo.png" alt="logo"/><span class="name">Такеши Суши</span></a>
+                <div class="infoBlock">
+                    <a href="#" class="nameMobile">Такеши Суши</a>
+                    <span class="phone"><a href="tel:+7(3452)974-343"><span class="sup">(3452)</span><span class="mainNumber">97-43-43</span></a></span>
+                    <div class="workTime">Сегодня работаем <br class="timeLine">с 11:00 до 24:00</div>
+                </div>
+                <div class="wrapHead">
+                    <div class="socialRefs">
+                        <!--<a href="#"><img src="img/socialIcons/facebook.png" alt=""/></a>
+                        <a href="#"><img src="img/socialIcons/gplus.png" alt=""/></a>-->
+                        <a href="#"><img src="img/socialIcons/vk.png" alt=""/></a>
+                        <a href="#"><img src="img/socialIcons/instagram.png" alt=""/></a>
+                        <!--<a href="#"><img src="img/socialIcons/ok.png" alt=""/></a>
+                        <a href="#"><img src="img/socialIcons/twitter.png" alt=""/></a>-->
+                    </div>
+                    <div class="cards"><span class="text">Принимаем к оплате карты</span><img src="img/visa.png" alt=""/><img src="img/masterCard.png" alt=""/> </div>
+                </div>
+                <a class="cartMobileButton" href="order.html"></a>
+            </div>
+            <div class="cartLine">
+                <ul class="categoryMenu">
+                    <li><a href="#">Роллы</a></li>
+                    <li><a href="#">Сеты</a></li>
+                    <li><a href="#">Пицца</a></li>
+                    <li><a href="#">Лапша</a></li>
+                    <li><a href="#">Салаты</a></li>
+                    <li><a href="#">Закуски</a></li>
+                    <li><a href="#">Десерты</a></li>
+                </ul>
+                <div class="cart"><span class="items">5 товаров<br>на 1265 руб.</span><a class="buttonCart" href="order.html">Оформить</a></div>
+            </div>
+        </div>
+        <!--Header end-->
+        <div class="slider">
+            <ul class="mainBanner">
+                <li><img src="img/banner1.jpg" alt=""/></li>
+                <li><img src="img/banner2.jpg"  alt=""/></li>
+            </ul>
+        </div>
+        <!--Main content start-->
+        <div class="wrapBodyContent">
+            <ul class="localMenu">
+                <li><a href="#">Все</a></li>
+                <li><a href="#">С тортильей</a></li>
+                <li><a href="#">Запеченные</a></li>
+            </ul>
+            <div class="wrapItems">
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item1.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Агарта</span>
+                                <p class="itemDescription">Рис, нори, угорь, огурец, зеленый лук, соус из копченой семги</p>
+                                <span class="itemDetails">220 гр./8 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">265 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item2.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Айсберг</span>
+                                <p class="itemDescription">Рис, обжаренная тигровая креветка, японский майонез, огурец </p>
+                                <span class="itemDetails">210 гр./6 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">249 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item3.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Аляска</span>
+                                <p class="itemDescription">Рис, нори, семга х/к, сливочный сыр, огурец, лист салата, кунжут белый</p>
+                                <span class="itemDetails">210 гр./8 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">245 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item4.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Банзай</span>
+                                <p class="itemDescription">Рис, сливочный сыр, свежий лосось, икра летучей рыбы «Тобико»</p>
+                                <span class="itemDetails">200 гр./6 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">235 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item5.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Аширо</span>
+                                <p class="itemDescription">Рис, сливочный сыр, свежий лосось, икра летучей рыбы «Тобико»</p>
+                                <span class="itemDetails">200 гр./6 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">235 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item1.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Агарта</span>
+                                <p class="itemDescription">Рис, нори, угорь, огурец, зеленый лук, соус из копченой семги</p>
+                                <span class="itemDetails">220 гр./8 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">265 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item2.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Айсберг</span>
+                                <p class="itemDescription">Рис, обжаренная тигровая креветка, японский майонез, огурец </p>
+                                <span class="itemDetails">210 гр./6 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">249 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item3.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Аляска</span>
+                                <p class="itemDescription">Рис, нори, семга х/к, сливочный сыр, огурец, лист салата, кунжут белый</p>
+                                <span class="itemDetails">210 гр./8 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">245 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item4.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Банзай</span>
+                                <p class="itemDescription">Рис, сливочный сыр, свежий лосось, икра летучей рыбы «Тобико»</p>
+                                <span class="itemDetails">200 гр./6 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">235 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapPaddItem">
+                    <div class="wrapItem">
+                        <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                            <img class="picture" src="img/items/item5.jpg" alt=""/>
+                            <div class="wrapText">
+                                <span class="itemHeader">Аширо</span>
+                                <p class="itemDescription">Рис, сливочный сыр, свежий лосось, икра летучей рыбы «Тобико»</p>
+                                <span class="itemDetails">200 гр./6 шт.</span>
+                            </div>
+                        </div>
+                        <div class="wrapBuy countButtons">
+                            <span class="price">235 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Main content end-->
+        <!--footer start-->
+        <div class="footer">
+            <a class="rules" href="#">Политика конфиденциальности</a>
+            <div class="socialRefs">
+                <a href="#"><img src="img/socialIcons/facebook.png" alt=""/></a>
+                <a href="#"><img src="img/socialIcons/gplus.png" alt=""/></a>
+                <a href="#"><img src="img/socialIcons/instagram.png" alt=""/></a>
+                <a href="#"><img src="img/socialIcons/ok.png" alt=""/></a>
+                <a href="#"><img src="img/socialIcons/twitter.png" alt=""/></a>
+                <a href="#"><img src="img/socialIcons/vk.png" alt=""/></a>
+            </div>
+            <span class="copyrights">&#xa9; Такеши суши, 2017</span>
+        </div>
+        <!--footer end-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/jquery.bxslider.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

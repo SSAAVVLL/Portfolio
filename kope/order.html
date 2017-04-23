@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Kore</title>
+		<link href="assets/css/reset.css" rel="stylesheet" type="text/css"/>
+		<link href="assets/css/fonts.css" rel="stylesheet" type="text/css"/>
+		<link href="assets/css/jquery.bxslider.css" rel="stylesheet" type="text/css"/>
+		<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+		
+		<script src="assets/js/jquery-2.1.4.min.js" type="text/javascript"></script>	
+		<script src="assets/js/jquery.bxslider.min.js" type="text/javascript"></script>
+		<script src="assets/js/script.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="phoneCall" class="backBlock">
+			<div class="bodyCall">
+				<a class="close" href="#"></a>
+				<form class="needCall">
+					<label><span>ФИО:</span><input type="text" placeholder="ФИО:" /></label
+					><label><span>Телефон:</span><input type="text" placeholder="Телефон:"/></label
+					><div class="wrapButtonSubmit">
+						<input value="Отправить" type="submit" />
+					</div>
+				</form>
+			</div>
+		</div> 
+		<div id="detailItem" class="backBlock">
+			<div class="bodyDetail">
+				<a class="close" href="#"></a>
+				<img src="" alt=""/>
+				<div class="details">
+					<span class="wrapInfo">
+						<span class="name"></span>
+						<span class="detail"></span>
+					</span
+					><a href="#" class="wrapInfo"><span class="buy" ><span class="number"></span> Р</span></a>
+				</div>
+			</div>
+		</div>
+		
+		<header>
+			<div id="logo">
+				<a href="index.html"><img src="assets/images/logoMain.png" alt=""/>
+				<span>Ресторан<br> Доставки</span>
+				</a>
+			</div>
+			<div class="headerWrapGroups">
+				<div class="headerGroup1">
+					<div class="headerItem1">
+						<span>Прием Заказов<br> Пн-Вс: с 10:00 до 21:00</span>
+					</div>
+					<div class="headerItem2">
+						 <span><sub>7 (3452)</sub> 58-66-99</span><a class="popup" data-pop="#phoneCall" href="#">Заказать звонок</a>
+					</div>
+					<div class="headerItem3 dropDown" data-target=".dropCart">
+						<a class="cart" href="#">Корзина</a>
+						
+					</div>
+					<div class="clearfix fix"></div>
+				</div>
+				<div class="headerGroup2">
+					<ul class="headerItem4">
+						<li><a href="#">Акции</a></li
+						><li><a href="deliver.html">Доставка</a></li
+						><li><a href="#">Бонусная программа</a></li
+						><li><a href="comments.html">Отзывы</a></li
+						><li><a href="about.html">О компании</a></li
+						><li><a href="#">Контакты</a></li>
+					</ul>
+					<div class="headerItem5">
+						<a href="#"><img src="assets/images/iconSocialVk.png" alt=""/></a
+						><a href="#"><img src="assets/images/iconSocialInstagram.png" alt=""/></a
+						><a href="#"><img src="assets/images/iconSocialFacebook.png" alt=""/></a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div id="menuCategory">
+			<ul>
+				<li><a class="active" href="#"><img src="assets/images/iconMenu1.png" alt=""/><span>Роллы</span></a></li
+				><li><a href="#"><img src="assets/images/iconMenu2.png" alt=""/><span>Горячие Роллы</span></a></li
+				><li><a href="#"><img src="assets/images/iconMenu3.png" alt=""/><span>Сеты</span></a></li
+				><li><a href="#"><img src="assets/images/iconMenu4.png" alt=""/><span>Лапша WOK</span></a></li
+			></ul>
+		</div>
+		
+		<div id="content">
+		
+			<div id="orderConfirm">
+				<form>
+					<div class="headerGrid"><span><img class="moreInfo" src="assets/images/iconOrder.png" alt=""/> Корзина</span></div>
+					<div class="itemOrder">
+						<img src="assets/images/rollsItem1.png" alt=""/>
+						<span class="itemInfo"><span class="name">Филадельфия лайт\ 230 гр.</span><span class="details">Описание продукта и его состав</span></span>
+						<span class="edit" data-result=".finalPrice .numberPrice"
+							><i class="minus"></i><input class="numb" type="text" value="1" readonly="readonly"
+							/><i class="plus"></i><i class="delete"></i><br><span class="price"><span data-step="20" class="number">20</span> р</span
+						></span>
+					</div>
+					<div class="itemOrder">
+						<img src="assets/images/rollsItem1.png" alt=""/>
+						<span class="itemInfo"><span class="name">Филадельфия лайт\ 230 гр.</span><span class="details">Описание продукта и его состав</span></span>
+						<span class="edit" data-result=".finalPrice .numberPrice"
+							><i class="minus"></i><input class="numb" type="text" value="1" readonly="readonly"
+							/><i class="plus"></i><i class="delete"></i><br><span class="price"><span data-step="20" class="number">20</span> р</span
+						></span>
+					</div>
+					<div class="formInfo">
+						<label class="itemForm"><span class="text">Контактный телефон</span><input type="text"/></label>
+						<label class="itemForm"><span class="text">Способ доставки</span><input type="text"/></label>
+						<label class="itemForm radios"><span class="text">Способ оплаты</span>
+							<span class="block">
+								<label><input name="processPayment" checked="checked" type="radio" value="1"/><span>Доставка на дом</span></label
+								><label><input name="processPayment" type="radio" value="2"/><span>Самовывоз</span></label
+								><span class="spaceInput"></span><label><input name="typePayment" checked="checked" type="radio" value="1"/><span>Наличными</span></label
+								><label><input name="typePayment" type="radio" value="1"/><span>Картой</span></label>
+							</span>
+						</label>
+						<label class="itemForm"><span class="text">Имя</span><input type="text"/></label>
+						<label class="itemForm"><span class="text">Улица</span><input type="text"/></label>
+						<label class="itemForm"><span class="text">Дом</span><input type="text"/></label>
+						<label class="itemForm"><span class="text">Квартира</span><input type="text"/></label>
+						<label class="itemForm"><span class="text">Подготовить сдачу с</span><input type="text"/></label>
+						<label class="itemForm"><span class="text">Количество персон</span><input type="text"/></label>
+					</div>
+					<div class="finalPrice"><h5>Итого:</h5>
+						<div>
+							<span class="price"><span data-step="20" class="numberPrice">20</span> р</span>
+						</div>
+						<input type="submit" value="Оформить заказ" class="buttonCompl"></input>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<!-- <div class="space"></div> -->
+		
+		<footer>
+			<div class="blocksWrap">
+				<div class="blockFooter1">
+					<span class="heading">О Компании</span
+					><p>Корё - это магазины японской и корейской кухни. А также служба доставки на дом и в офис.<br>
+					Начиная с 2014 года компания "Коре" радует горожан и гостей города богатым выбором блюд японской и корейской кухни в классичсеском и современном исполнении.</p>
+					<div class="social"><a href="#">
+					<img src="assets/images/iconFooterVk.png" alt=""/></a
+					><a href="#"><img src="assets/images/iconFooterInstagram.png" alt=""/></a
+					><a href="#"><img src="assets/images/iconFooterFacebook.png" alt=""/></a></div>
+				</div>
+				<div class="blockFooter2">
+					<span class="heading">Контакты</span>
+					<div class="contact"><img src="assets/images/iconFooterTime.png" alt=""/><span>Приём заказов: <br>Пн-вс: С 10:00 до 21:00</span></div>
+					<div class="contact"><img src="assets/images/iconFooterPhone.png" alt=""/><span>7 (3452) 58-66-99</span></div>
+				</div>
+				<div class="blockFooter3">
+					<img src="assets/images/iconFooterMastercard.png" alt=""/>
+					<img src="assets/images/iconFooterVisa.png" alt=""/>
+					<img src="assets/images/iconFooterMaestro.png" alt=""/>
+				</div>
+			</div>
+			<div class="copyright">&#169; 2016 - 2018 Г. Тюмень, КОРЕ - ресторан доставки.</div>
+		</footer>
+	</body>
+</html>	

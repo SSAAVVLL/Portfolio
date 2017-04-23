@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<title> skidkabon </title>
+		<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+		
+		<script src="assets/js/jquery-2.1.4.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/script.js"></script>
+	</head>
+	<!-- Modal -->
+	<div class="modal fade" id="modal_ring" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content bg-gr">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<form class="center">
+						<span class="nm">
+							Имя<br>
+							Телефон
+						</span>
+						<span>
+							<input type="text"/><br>
+							<input type="text"/>
+							<div><input class="ring-but"  type="submit" value="Заказать звонок"/></div>
+						</span>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<body class="col-sc-green">
+		<div class="container-fluid">
+			<div class="row head-det">
+				<div class="container">
+					<div class="row top-bar visible-xs">
+						<i class="glyphicon glyphicon-align-justify"></i>
+						<ul>
+							<li><a href="#">О компании</a>
+							<li><a href="#">Контакты</a>
+							<li><a href="#">Заказать звонок</a>
+							<li><a href="#">Услуги</a>
+							<li><a href="#">Расписание</a>
+						</ul>
+					</div>
+					<div class="row">
+						<div class="col-xs-5 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1 logo-head-det">
+							<img class="full-width" src="assets/images/logo_det.png" alt=""/>
+						</div>
+						<div class="col-xs-7 col-sm-5 col-sm-offset-2 col-md-4 col-md-offset-3 logo-head-address">
+							<span class="phone-number">(3452) 33-01-41, 33-54-54</span>
+							<span class="address"><i class="glyphicon glyphicon-map-marker"></i> ул. Олимпийская, 9/1</span>
+							<a href="#" data-toggle="modal" data-target="#modal_ring"  class="btn-ring" >Заказать звонок</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-1 hidden-xs menu-det">
+							<div class="row">
+								<ul>
+									<li><a href="#">О компании</a>
+									<li><a href="#">Контакты</a>
+									<li><a href="#">Заказать звонок</a>
+									<li><a href="#">Услуги</a>
+									<li><a href="#">Расписание</a>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container main-content">
+				<div class="row">
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="block-subinfo">
+							<h3>Схема проезда</h3>
+							<img class="full-width" src="assets/images/map.jpg" alt=""/>
+						</div>
+						<div class="block-subinfo contacts">
+							<h3>Контакты</h3>
+							<div class="wrap-sub-point">
+								<div class="sub-point"><i class="glyphicon glyphicon-earphone"></i> (3452) 33-01-41, 33-54-54</div>
+								<div class="sub-point"><i class="glyphicon glyphicon-map-marker"></i> ул. Олимпийская, 9/1</div>
+								<div class="sub-point"><img class="vk" src="assets/images/vk.png" src=""/> <a href="https://vk.com/serebro_band"> https://vk.com/serebro_band</a></div>
+							</div>
+							<div class="wrap-week"> 
+								<table class="full-width">
+									<thead>
+										<tr><th class="active">Пн</th><th class="active">Вт</th><th class="active">Ср</th><th class="active">Чт</th><th class="active">Пт</th><th class="active">Сб</th><th class="active">Вс</th></tr>
+									</thead>
+									<tbody>
+										<tr><th>11<sup>00</sup></th><th>11<sup>00</sup></th><th class="active">11<sup>00</sup></th><th>11<sup>00</sup></th><th>11<sup>00</sup></th><th>11<sup>00</sup></th><th>11<sup>00</sup></th></tr>
+										<tr><th>11<sup>00</sup></th><th>11<sup>00</sup></th><th class="active">11<sup>00</sup></th><th>11<sup>00</sup></th><th>11<sup>00</sup></th><th>11<sup>00</sup></th><th>11<sup>00</sup></th></tr>
+									</tbody>
+								</table>
+								<a href="#" data-toggle="modal" data-target="#modal_ring" class="ring">Заказать звонок</a>
+							</div>
+						</div>
+						<div class="block-subinfo">
+							<img class="full-width" src="assets/images/boy.jpg" alt=""/>
+						</div>
+					</div>
+					<div class="col-sm-7 big-block">
+						<p>
+							Фитнес-клуб «Эдельвейс»  — первый клуб в Тюмени. Открылся в октябре 2002 года.
+							Услуги: тренажерный зал, групповые программы (мягкий фитнес, танцевальные направления, силовые тренировки),
+							зал боевых искусств (кикбоксинг, уличный бокс, бокс, детский бокс),
+							зона релаксации (бассейн, массажная кровать, инфракрасная сауна).
+							сауны в раздевалках, велостудия, детский клуб, солярий, массаж, персональный тренинг, 2 полотенца, сейф для ценных вещей.
+						</p>
+						<p>
+							Преимущества фитнес центра: отдельно находящееся здание, охраняемый и удобный паркинг,
+							тренажеры и оборудования ведущих фирм мира, квалифицированные тренера и радужный персонал.
+							Комфортные условия для занятий, гибкий график тренировок, 
+							возможность добиться блестящих результатов и поставленных целей с инструктором и самостоятельно. 
+							Широкий спектр фитнес-направлений. Выгодная ценовая политика: бонусная система скидок для постоянных клиентов, 
+							корпоративные предложения для организаций (компаний), сезонные скидки, а также индивидуальный подход к каждому клиенту. 
+						</p>
+						<p>
+							Мы всегда рады Вас видеть в нашем фитнес-клубе!!! 
+						</p>
+						<h3>Акции и новости</h3>
+						<div class="wrap-news">
+							<div class="news-item">
+								<div class="news-icon">
+									<img src="assets/images/news-1.jpg" alt=""/>
+								</div>
+								<div class="body-news">
+									<a class="header-news" href="#">День Открытых Дверей</a>
+									<span class="date"><i class="glyphicon glyphicon-time"></i> 27.05.2015</span>
+									<p>
+										Фитнес-клуб “Эдельвейс” приглашает всех желающих 6 июня на день открытых дверей.
+									</p>
+								</div>
+							</div>
+							<div class="news-item">
+								<div class="news-icon">
+									<img src="assets/images/news-2.jpg" alt=""/>
+								</div>
+								<div class="body-news">
+									<a class="header-news" href="#">Начинаются занятия по Детскому Боксу</a>
+									<span class="date"><i class="glyphicon glyphicon-time"></i> 27.05.2015</span>
+									<p>
+										Со 02 сентября  начинает свою работу секция Детского бокса. Инструктор Жуков Сергей.
+									</p>
+								</div>
+							</div>
+							<div class="news-item">
+								<div class="news-icon">
+									<img src="assets/images/news-3.jpg" alt=""/>
+								</div>
+								<div class="body-news">
+									<a class="header-news" href="#">Мастер класс по йоге АЙЕНГАРА</a>
+									<span class="date"><i class="glyphicon glyphicon-time"></i> 27.05.2015</span>
+									<p>
+										Мастер класс по йоге АЙЕНГАРА Ольги Ильинской (Москва)
+										Преподаватель йоги Айенгара уровня Senior 2, старший преподаватель в Студии
+									</p>
+								</div>
+							</div>
+						</div>
+						<h3>Программы</h3>
+						<div class="panel-group" id="acord">
+							<div class="panel" data-toggle="collapse" data-parent="#acord" data-target="#collapse-1">
+								<div class="panel-heading">
+									Индивидуальная
+									<div class="arrow">
+										<i class="glyphicon glyphicon-menu-down"></i> 
+									</div>
+								</div>
+								<div id="collapse-1" class="collapse body-pan">
+									<div class="bd-pan">
+										<span>Будни: 7:00 - 23:00</span>
+										<span>Выходные: 10:00 - 21:00</span>
+										<span>Стоимость: 4000 руб.</span>
+										<a class="btn-det" href=#>Подробнее</a>
+									</div>
+								</div>
+							</div>
+							<div class="panel" data-toggle="collapse" data-parent="#acord" data-target="#collapse-2">
+								<div class="panel-heading">
+									Вечерняя
+									<div class="arrow">
+										<i class="glyphicon glyphicon-menu-down"></i> 
+									</div>
+								</div>
+								<div id="collapse-2" class="collapse body-pan">
+									<div class="bd-pan">
+										<span>Будни: 7:00 - 23:00</span>
+										<span>Выходные: 10:00 - 21:00</span>
+										<span>Стоимость: 4000 руб.</span>
+										<a class="btn-det" href=#>Подробнее</a>
+									</div>
+								</div>
+							</div>
+							<div class="panel" data-toggle="collapse" data-parent="#acord" data-target="#collapse-3">
+								<div class="panel-heading">
+									Универсальная
+									<div class="arrow">
+										<i class="glyphicon glyphicon-menu-down"></i> 
+									</div>
+								</div>
+								<div id="collapse-3" class="collapse body-pan">
+									<div class="bd-pan">
+										<span>Будни: 7:00 - 23:00</span>
+										<span>Выходные: 10:00 - 21:00</span>
+										<span>Стоимость: 4000 руб.</span>
+										<a class="btn-det" href=#>Подробнее</a>
+									</div>
+								</div>
+							</div>
+							<div class="panel" data-toggle="collapse" data-parent="#acord" data-target="#collapse-4">
+								<div class="panel-heading">
+									Фиксированная №1
+									<div class="arrow">
+										<i class="glyphicon glyphicon-menu-down"></i> 
+									</div>
+								</div>
+								<div id="collapse-4" class="collapse body-pan">
+									<div class="bd-pan">
+										<span>Будни: 7:00 - 23:00</span>
+										<span>Выходные: 10:00 - 21:00</span>
+										<span>Стоимость: 4000 руб.</span>
+										<a class="btn-det" href=#>Подробнее</a>
+									</div>
+								</div>
+							</div>
+							<div class="panel" data-toggle="collapse" data-parent="#acord" data-target="#collapse-5">
+								<div class="panel-heading">
+									Фиксированная №2
+									<div class="arrow">
+										<i class="glyphicon glyphicon-menu-down"></i> 
+									</div>
+								</div>
+								<div id="collapse-5" class="collapse body-pan">
+									<div class="bd-pan">
+										<span>Будни: 7:00 - 23:00</span>
+										<span>Выходные: 10:00 - 21:00</span>
+										<span>Стоимость: 4000 руб.</span>
+										<a class="btn-det" href=#>Подробнее</a>
+									</div>
+								</div>
+							</div>
+							<div class="btn-bg-gr">
+								<a class="btn-det" href=#>Подробнее</a>
+							</div>
+						</div>
+						<h3>Фотогаллерея</h3>
+						<div class="photos">
+							<a href="#"><img src="assets/images/photo-1.jpg" alt=""/><span class="gr"><i class="glyphicon glyphicon-search"></i></span></a>
+							<a href="#"><img src="assets/images/photo-2.jpg" alt=""/><span class="gr"><i class="glyphicon glyphicon-search"></i></span></a>
+							<a href="#"><img src="assets/images/photo-3.jpg" alt=""/><span class="gr"><i class="glyphicon glyphicon-search"></i></span></a>
+						</div>
+					<div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

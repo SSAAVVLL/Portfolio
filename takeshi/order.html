@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery.bxslider.css">
+        <link rel="stylesheet" href="css/styles.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!--Modal block start-->
+        <div class="modal">
+            <div class="modalShadow toggleModal" data-modal=".modal"></div>
+            <div class="modalBody">
+                <a class="close toggleModal" data-modal=".modal" href="#"></a>
+                <img class="picture" src="img/itemsBig/item1.png" alt=""/>
+                <div class="wrapItem">
+                    <div class="wrapText">
+                        <span class="itemHeader"></span>
+                        <p class="itemDescription"></p>
+                        <span class="itemDetails"></span>
+                    </div>
+                    <div class="wrapBuy countButtons">
+                        <span class="price"></span>
+                        <div class="count"><a class="minus"></a><span class="number"></span><a class="plus"></a></div>
+                        <a class="buttonAddToCart" href="#"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal block end-->
+        <!--Main content start-->
+        <div class="wrapBodyContent">
+            <h1 class="headerContent">Отзывы клиентов</h1>
+            <div class="wrapContent order">
+                <div class="cart">
+                    <h2 class="headerOrder">Оформление заказа</h2>
+                    <span class="sublineOrder">У Вас в корзине:</span>
+                    <div class="itemCartOrder">
+                        <span class="name">Агарта</span>
+                        <div class="count"><a class="delete"></a><a class="minus"></a><span class="number">2</span><a class="plus"></a></div>
+                        <span class="price">265 руб.</span>
+                    </div>
+                    <div class="itemCartOrder">
+                        <span class="name">Гаваи</span>
+                        <div class="count"><a class="delete"></a><a class="minus"></a><span class="number">3</span><a class="plus"></a></div>
+                        <span class="price">350 руб.</span>
+                    </div>
+                    <div class="itemCartOrder">
+                        <span class="name">Лапша Удон + Лосось + Унаги + Перчик халапеньо</span>
+                        <div class="count"><a class="delete"></a><a class="minus"></a><span class="number">3</span><a class="plus"></a></div>
+                        <span class="price">1100 руб.</span>
+                    </div>
+                    <p class="discriptionAdds">На каждые 300 рублей заказа суши полагается бесплатная порция имбиря, васаби, соевого соуса и палочки.
+                        Также вы можете выбрать необходимое количество дополнительных порций:</p>
+                    <div class="addItems">
+                        <div class="addItem">
+                            <div class="visual">
+                                <img src="img/addItem1.png" alt=""/>
+                                <span class="name">Имбирь</span>
+                            </div>
+                            <span class="price">265 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                        <div class="addItem">
+                            <div class="visual">
+                                <img src="img/addItem2.png" alt=""/>
+                                <span class="name">Васаби</span>
+                            </div>
+                            <span class="price">30 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                        <div class="addItem">
+                            <div class="visual">
+                                <img src="img/addItem3.png" alt=""/>
+                                <span class="name">Соевый соус</span>
+                            </div>
+                            <span class="price">30 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                        <div class="addItem">
+                            <div class="visual">
+                                <img src="img/addItem4.png" alt=""/>
+                                <span class="name">Палочки</span>
+                            </div>
+                            <span class="price">30 руб.</span>
+                            <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                            <a class="buttonAddToCart" href="#"></a>
+                        </div>
+                    </div>
+                    <span class="total">ИТОГО: 1265 руб.</span>
+                    <form class="formOrder">
+                        <div class="itemForm">
+                            <label class="formElement"><span class="heading">*Ваш контактный телефон:</span>
+                                <span class="wrapInputs">
+                                    <input type="text"/>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="itemForm radio">
+                            <label class="formElement"><span class="heading">*Способ доставки:</span></label>
+                            <span class="wrapInputs">
+                                <label class="labelRadio"><input type="radio" checked="checked" name="delivery" value="1"/><span class="valueRadio">Доставка на адрес (бесплатная доставка при заказе от 350 рублей)</span></label>
+                                <label class="labelRadio"><input type="radio" name="delivery" value="2"/><span class="valueRadio">Самовывоз (при самовывозе 10% скидка)</span></label>
+                            </span>
+                        </div>
+                        <div class="itemForm radio">
+                            <label class="formElement"><span class="heading">*Способ оплаты:</span></label>
+                            <span class="wrapInputs">
+                                <label class="labelRadio"><input type="radio" checked="checked" name="payment" value="1"/><span class="valueRadio">Наличными</span></label>
+                                <label class="labelRadio"><input type="radio" name="payment" value="2"/><span class="valueRadio">Банковской картой на сайте online)</span></label>
+                                <label class="labelRadio"><input type="radio" name="payment" value="2"/><span class="valueRadio">Банковской картой при доставке</span></label>
+                            </span>
+                        </div>
+                        <div class="itemForm">
+                            <label class="formElement"><span class="heading">*Ваше имя:</span>
+                                <span class="wrapInputs">
+                                    <input type="text"/>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="itemForm">
+                            <label class="formElement"><span class="heading">*Улица:</span>
+                                <span class="wrapInputs">
+                                    <input type="text"/>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="itemForm threeElements">
+                            <label class="formElement"><span class="heading">*Дом:</span>
+                                <span class="wrapInputs">
+                                    <input type="text"/>
+                                </span>
+                            </label>
+                            <label class="formElement"><span class="heading">Корпус:</span>
+                                <span class="wrapInputs">
+                                    <input type="text"/>
+                                </span>
+                            </label>
+                            <label class="formElement"><span class="heading">Строение:</span>
+                                <span class="wrapInputs">
+                                    <input type="text"/>
+                                </span>
+                            </label>
+                            <div class="otherElements">
+                                <label class="formElement"><span class="heading">Подъезд:</span>
+                                    <span class="wrapInputs">
+                                        <input type="text"/>
+                                    </span>
+                                </label>
+                                <label class="formElement"><span class="heading">Этаж:</span>
+                                    <span class="wrapInputs">
+                                        <input type="text"/>
+                                    </span>
+                                </label>
+                                <label class="formElement"><span class="heading">Квартира:</span>
+                                    <span class="wrapInputs">
+                                        <input type="text"/>
+                                    </span>
+                                </label>
+                                <label class="formElement"><span class="heading">Офис:</span>
+                                    <span class="wrapInputs">
+                                        <input type="text"/>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="itemForm twoElements">
+                            <label class="formElement"><span class="heading">Подготовить сдачу с:</span>
+                                <span class="wrapInputs">
+                                    <input type="text"/>
+                                </span>
+                            </label>
+                            <label class="formElement"><span class="heading">Количество персон:</span>
+                                <span class="wrapInputs">
+                                    <input type="number" min="0" value="1"/>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="itemForm textarea">
+                            <label class="formElement"><span class="heading">Примечания и особые просьбы:</span>
+                                <span class="wrapInputs">
+                                    <textarea></textarea>
+                                </span>
+                            </label>
+                        </div>
+                        <p class="tip">Звездочкой (*) отмечены поля, обязательные для заполнения</p>
+                        <div class="itemForm checkbox">
+                            <label class="labelCheckbox"><input type="checkbox"  name="agreePrivacy" value="1"/><span class="textCheckbox">Нажимая кнопку «Оформить заказ», я даю своё согласие на обработку моих персональных данных, в соответствии с
+                                Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных
+                                <a class="privacy" href="#">Политикой конфиденциальности.</a></span></label>
+                        </div>
+                        <input class="getOrder" type="submit" value="ОФОРМИТЬ ЗАКАЗ"/>
+                    </form>
+                </div>
+                <div class="recommend">
+                    <h2 class="headerOrder">Рекомендуем попробовать:</h2>
+                    <div class="wrapItems order">
+                        <div class="wrapPaddItem">
+                            <div class="wrapItem">
+                                <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                                    <img class="picture" src="img/items/item1.jpg" alt=""/>
+                                    <div class="wrapText">
+                                        <span class="itemHeader">Агарта</span>
+                                        <p class="itemDescription">Рис, нори, угорь, огурец, зеленый лук, соус из копченой семги</p>
+                                        <span class="itemDetails">220 гр./8 шт.</span>
+                                    </div>
+                                </div>
+                                <div class="wrapBuy countButtons">
+                                    <span class="price">265 руб.</span>
+                                    <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                                    <a class="buttonAddToCart" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapPaddItem">
+                            <div class="wrapItem">
+                                <div class="wrapDescription toggleModal updateModal" data-modal=".modal">
+                                    <img class="picture" src="img/items/item1.jpg" alt=""/>
+                                    <div class="wrapText">
+                                        <span class="itemHeader">Агарта</span>
+                                        <p class="itemDescription">Рис, нори, угорь, огурец, зеленый лук, соус из копченой семги</p>
+                                        <span class="itemDetails">220 гр./8 шт.</span>
+                                    </div>
+                                </div>
+                                <div class="wrapBuy countButtons">
+                                    <span class="price">265 руб.</span>
+                                    <div class="count"><a class="minus"></a><span class="number">1</span><a class="plus"></a></div>
+                                    <a class="buttonAddToCart" href="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="backToCatalog" href="#">Вернуться к выбору</a>
+                </div>
+            </div>
+        </div>
+        <!--Main content end-->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/jquery.bxslider.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
